@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://students-data-management-system-using.onrender.com";
 
 let editingStudentId = null;
 
@@ -29,7 +29,7 @@ function displayStudents(students){
     <td>${student.department}</td>
     <td>${student.semester}</td>
     <td>
-    <button 
+    <button
     class="edit-btn"
     onclick="editStudent(
         ${student.id},
@@ -59,9 +59,9 @@ document.getElementById("studentForm")
     event.preventDefault();
     const name =
     document.getElementById("name").value;
-    const department = 
+    const department =
     document.getElementById("department").value;
-    const semester = 
+    const semester =
     parseInt(
         document.getElementById("semester").value
     );
