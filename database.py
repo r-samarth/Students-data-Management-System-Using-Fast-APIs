@@ -1,14 +1,20 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker,declarative_base
-DATABSE_URL="sqlite:///./students.db"
-engine=create_engine(
-    DATABSE_URL,
-    connect_args={"check_same_thread":False}
+from sqlalchemy.orm import declarative_base, sessionmaker
+import os
 
-)
-SessionLocal=sessionmaker(
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./students.db")
+
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
+
+engine = create_engine(DATABASE_URL, connect_args=connect_args)
+
+SessionLocal = sessionmaker(
     autocommit=False,
     autoflush=False,
-    bind=engine
+    bind=engine,
 )
-Base=declarative_base()
+
+Base = declarative_base()
