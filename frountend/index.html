@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students-dataManagement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-md">
+        <h1>Student managment System </h1>
+        <p class="subtitle">
+            Its From FastAPI
+        </p>
+        <div class=" card from">
+            <h2 id="formTitle">Add Student</h2>
+            <form action="" id="studentForm">
+                <input type="text" id="name" placeholder="Entre Student name" required>
+                <input type="text" id="department" placeholder="Entre Student depardent " required>
+                <select name="Sem" id="semester">
+                    <option value="" selected> Select a sem  </option>
+                    <option value="1"> 1st sem</option>
+                    <option value="2"> 2nd sem</option>
+                    <option value="3"> 3th sem</option>
+                    <option value="4"> 4th sem</option>
+                    <option value="5"> 5th sem</option>
+                    <option value="6"> 6th sem</option>
+                    <option value="7"> 7th sem</option>
+                    <option value="8"> 8th sem</option>
+                   
+
+                </select>
+                <button class="btn btn-outline-primary" type="submit">
+                    Add Student
+                </button>
+                <button type="button" id="cancelBtn" class=" btn btn-outline-danger cancel" onclick="cancelEdit()">
+                    Cencle
+                </button>
+                
+            </form>
+        </div>
+        <div class=" card student-card">
+            <div class=" card-body heading-row">
+                <h2 class="card-title">Students</h2>
+                <p class="card-text">Here are the list of students </p>
+                <button class="btn btn-outline-warning" onclick="loadStudents()">
+                    refresh
+                </button>
+            </div>
+            <table>
+                <thead>
+                <th>ID</th>
+                <th>Nmae</th>
+                <th>depardent</th>
+                <th>Semester</th>
+                <th>Actions</th>
+                </thead>
+                <tbody id="studentTableBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
